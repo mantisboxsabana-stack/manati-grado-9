@@ -1,0 +1,51 @@
+/* Colores y letras de Manatí: el maíz del conuco y el agua verde del Guájaro */
+:root {
+    --fondo: #FBF4D9;
+    --tinta: #173B36;
+    --suave: #E9EDD9;
+    --linea: #D9D3B5;
+    --acento: #E9B124;
+    --acento-fuerte: #D69D12;
+    --sobre-acento: #173B36;
+    --agua: #2E7D6F;
+    --portada-fondo: #173B36;
+    --f-display: "Alegreya", Georgia, serif;
+    --f-texto: "Alegreya Sans", "Segoe UI", sans-serif;
+    --peso-display: 800;
+    --tracking-display: -0.01em;
+    --radio-tarjeta: 10px;
+    --resumen-fondo: #173B36;
+}
+body { font-size: 1.12rem; }
+
+/* La portada: el trío servido en orden, como se come en Manatí */
+.portada { background: var(--tinta); align-items: center; }
+.portada::after { display: none; }
+.portada__texto { display: grid; gap: 2.5rem; align-items: center; padding-top: 8rem; max-width: 1240px; margin-inline: auto; width: 100%; }
+@media (min-width: 980px) { .portada__texto { grid-template-columns: 1fr 1.1fr; } }
+.portada h1 { font-size: clamp(3rem, 8vw, 6.8rem); line-height: .92; font-style: italic; color: var(--acento); }
+.trio { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.6rem, 2vw, 1.4rem); counter-reset: paso; }
+.trio li { counter-increment: paso; text-align: center; }
+.trio img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 5px solid var(--acento); }
+.trio strong { display: block; margin-top: .7rem; font-family: var(--f-display); font-size: clamp(1.05rem, 1.8vw, 1.45rem); line-height: 1.1; }
+.trio span { display: block; font-size: .92rem; opacity: .85; }
+.trio li::before { content: counter(paso); display: grid; place-items: center; width: 2.1rem; height: 2.1rem; margin: 0 auto -1.05rem; position: relative; z-index: 1; border-radius: 50%; background: var(--acento); color: var(--tinta); font-weight: 800; }
+.trio li:nth-child(2) { transform: translateY(1.6rem); }
+@media (max-width: 979px) {
+    .portada__texto { padding-top: 6rem; }
+    .trio { order: -1; }
+    .trio span { display: none; }
+}
+
+/* Pasos del maíz (es una secuencia real: va numerada) */
+.camino { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); counter-reset: paso; }
+.camino li { counter-increment: paso; background: var(--suave); border-radius: 10px; padding: 1.1rem 1.1rem 1.2rem; border-top: 6px solid var(--agua); }
+.camino li::before { content: counter(paso); font-family: var(--f-display); font-size: 2.2rem; line-height: 1; color: var(--agua); display: block; }
+.camino strong { display: block; font-family: var(--f-display); font-size: 1.3rem; margin: .3rem 0; }
+
+.prenda--texto { background: var(--fondo); border-radius: 10px; padding: 1.4rem; align-self: start; }
+.prenda--texto h3 { margin-top: 0; }
+
+.glosario { display: grid; gap: .9rem 2rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 3rem 0 0; }
+.glosario dt { font-family: var(--f-display); font-size: 1.3rem; font-weight: 800; color: var(--agua); }
+.glosario dd { margin: .1rem 0 0; }
